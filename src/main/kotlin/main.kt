@@ -1,3 +1,4 @@
+import com.pinnsights.autoPuppyPost
 import com.pinnsights.runClassifieds
 import org.openqa.selenium.By
 import org.openqa.selenium.chrome.ChromeDriver
@@ -38,7 +39,20 @@ fun main(args: Array<String>) {
 //            file.appendText("$it\n")
 //        }
 //    }
-    runClassifieds(driver)
+
+    var puppyLocation = ""
+    var puppyPost = false
+    //    "seattle" "san diego" "Phoenix" "philadelphia"
+//    "new york" "miami" "los angeles" "houston" "dallas" "chicago"
+
+    puppyLocation = "dallas"
+    puppyPost = true
+
+    if(puppyPost) {
+        autoPuppyPost(driver,puppyLocation)
+    } else {
+        runClassifieds(driver)
+    }
 
     driver.close()
 }

@@ -75,7 +75,7 @@ fun runClassChicagoKitten(driver: ChromeDriver) {
 fun adsLogin(driver: ChromeDriver, user: String, pass: String) {
     try {
         driver.get("https://www.classifiedads.com/login.php")
-        driver.findElement(By.name("login_email")).sendKeys("$user"+"@petkittensforsale.com")
+        driver.findElement(By.name("login_email")).sendKeys("$user")
         driver.findElement(By.name("login_password")).sendKeys("$pass")
         driver.findElement(By.xpath("//input[@value='Log in']")).click()
         Thread.sleep(1000)
