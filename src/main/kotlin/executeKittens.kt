@@ -2,6 +2,9 @@ package com.pinnsights
 
 import org.openqa.selenium.By
 import org.openqa.selenium.chrome.ChromeDriver
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 fun adNowLAKitten(driver: ChromeDriver) {
 
@@ -9,6 +12,37 @@ fun adNowLAKitten(driver: ChromeDriver) {
     val ads: IntArray = intArrayOf(598429223,598429211,598429200,598429170,598429162,598429157,598429138,598429127,598429117,598429066,
         598429058,598429011,598428974,598428936,598428929,598428916,598428836,598428819,598428800,598428754,
         598425955,593387919)
+
+    //println("Ads Now: " + ads.size)
+    executeAds(driver,ads)
+}
+
+fun adNowSEAKitten(driver: ChromeDriver) {
+
+    Thread.sleep(1000)
+    val ads: IntArray = intArrayOf(621316806,621311027,621310914,621310711,621310691,607569792)
+
+    //println("Ads Now: " + ads.size)
+    executeAds(driver,ads)
+}
+
+fun adNowDALKitten(driver: ChromeDriver) {
+
+    Thread.sleep(1000)
+    val ads: IntArray = intArrayOf(621321273,621321257,621321246,621321234,621321224,621321211,621321195,621321184,621321175,621321163,
+        621321154,621321140,621321128,621321110,621321096,621321089,621321076,621321041,621320517,621320491,
+        621320474,621320443,607605382)
+
+    //println("Ads Now: " + ads.size)
+    executeAds(driver,ads)
+}
+
+fun adNowSANKitten(driver: ChromeDriver) {
+
+    Thread.sleep(1000)
+    val ads: IntArray = intArrayOf(621320283,621320151,621320044,621319946,621319823,621319755,621319705,621319653,621319636,621319629,
+        621319608,621319585,621319546,621319503,621319486,621319454,621319430,621319377,621319337,621319307,
+        621319266,621319241,607701186)
 
     //println("Ads Now: " + ads.size)
     executeAds(driver,ads)
@@ -114,6 +148,11 @@ fun executeAds(driver: ChromeDriver,ads:IntArray) {
         //println("$i: " + index)
         driver.get("https://www.classifiedads.com/post.php?$index")
         Thread.sleep(1000)
+
+        renewAds(driver,index)
+
+        Thread.sleep(1000)
+
         driver.findElement(By.xpath("//a[@class='flat']")).click()
         Thread.sleep(1000)
     }
@@ -121,4 +160,17 @@ fun executeAds(driver: ChromeDriver,ads:IntArray) {
     Thread.sleep(1000)
     driver.findElement(By.xpath("//a[@href='/logout.php']")).click()
     Thread.sleep(1000)
+}
+
+fun renewAds(driver: ChromeDriver, index: Int) {
+    val dateString = driver.findElement(By.name("time_expires")).getAttribute("value").toString()
+    val parsedDate = LocalDate.parse(dateString, DateTimeFormatter.ofPattern("MMM d, yyyy"))
+    val today = LocalDate.now()
+
+    if(parsedDate<today) {
+        Thread.sleep(1000)
+        driver.get("https://www.classifiedads.com/account.php?itemskip=0&aid=$index&renew=1")
+        Thread.sleep(1000)
+        driver.get("https://www.classifiedads.com/post.php?$index")
+    }
 }

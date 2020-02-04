@@ -7,6 +7,7 @@ import org.openqa.selenium.remote.CapabilityType
 import org.openqa.selenium.remote.DesiredCapabilities
 import java.io.File
 import java.util.HashMap
+import kotlin.system.exitProcess
 
 fun main(args: Array<String>) {
     val chromePrefs = HashMap<String, Any>()
@@ -17,6 +18,9 @@ fun main(args: Array<String>) {
     cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true)
     cap.setCapability(ChromeOptions.CAPABILITY, options)
     val driver = ChromeDriver(cap)
+
+    var puppyLocation = ""
+    var puppyPost = false
 //
 //    val file = File("BWWHistory.txt")
 //    if (!file.exists()) file.createNewFile()
@@ -40,12 +44,11 @@ fun main(args: Array<String>) {
 //        }
 //    }
 
-    var puppyLocation = ""
-    var puppyPost = false
+
     //    "seattle" "san diego" "Phoenix" "philadelphia"
 //    "new york" "miami" "los angeles" "houston" "dallas" "chicago"
 
-    puppyLocation = "dallas"
+    puppyLocation = "seattle"
     puppyPost = true
 
     if(puppyPost) {
@@ -55,4 +58,6 @@ fun main(args: Array<String>) {
     }
 
     driver.close()
+
+    exitProcess(1)
 }
