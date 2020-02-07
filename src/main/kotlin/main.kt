@@ -1,5 +1,4 @@
-import com.pinnsights.autoPuppyPost
-import com.pinnsights.runClassifieds
+import com.pinnsights.*
 import org.openqa.selenium.By
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
@@ -48,8 +47,8 @@ fun main(args: Array<String>) {
     //    "seattle" "san diego" "Phoenix" "philadelphia"
 //    "new york" "miami" "los angeles" "houston" "dallas" "chicago"
 
-    puppyLocation = "seattle"
-    puppyPost = true
+//    puppyLocation = "seattle"
+//    puppyPost = true
 
     if(puppyPost) {
         autoPuppyPost(driver,puppyLocation)
@@ -60,4 +59,14 @@ fun main(args: Array<String>) {
     driver.close()
 
     exitProcess(1)
+}
+
+fun runClassifieds(driver: ChromeDriver) {
+    birdClassifieds(driver)
+    kittenClassifieds(driver)
+    puppyClassifieds(driver)
+}
+
+fun birdClassifieds(driver: ChromeDriver) {
+    runBirdChicago(driver)
 }

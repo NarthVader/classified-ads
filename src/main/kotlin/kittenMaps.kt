@@ -14,3 +14,7 @@ val adsNowKittensLogin: HashMap<String,String> = hashMapOf("seattle" to "SPKFS20
     "newyork" to "NYPKFS2019!", "miami" to "MPKFS2019!", "la" to "LAPKFS2019!", "houston" to "HPKFS2019!", "dallas" to "DPKFS2019!", "chicago" to "CPKFS2019!"
 )
 
+val adsNowPuppiesLogin: HashMap<String,String> = hashMapOf("seattle" to "SPKFS2019!","sandiego" to "SDPKFS2019!","Phoenix" to "PPKFS2019!", "philadelphia" to "PPKFS2019!",
+    "newyork" to "NYPKFS2019!", "miami" to "MPKFS2019!", "la" to "LAPKFS2019!", "houston" to "HPKFS2019!", "dallas" to "DPKFS2019!", "chicago" to "CPKFS2019!"
+)
+

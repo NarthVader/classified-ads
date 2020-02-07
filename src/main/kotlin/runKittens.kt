@@ -6,14 +6,7 @@ import org.openqa.selenium.TimeoutException
 import org.openqa.selenium.UnhandledAlertException
 import org.openqa.selenium.chrome.ChromeDriver
 
-fun runClassifieds(driver: ChromeDriver) {
-    birdClassifieds(driver)
-    kittenClassifieds(driver)
-}
 
-fun birdClassifieds(driver: ChromeDriver) {
-    runBirdChicago(driver)
-}
 
 fun kittenClassifieds(driver: ChromeDriver) {
     runClassSEAKitten(driver)
